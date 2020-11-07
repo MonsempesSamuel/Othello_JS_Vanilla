@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Othello</title>
+    <link href="Othello%20JS_fichiers/app.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div id="particles-js" class="fondecran">
+    <div id="main" class="container">
+      <div id="player" >
+        Vous : 2 <br/>
+        Bot : 2
+      </div>
+      <div id="game-board">
+        <table>
+            <tr>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+            </tr>
+            <tr>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+            </tr>
+            <tr>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+            </tr>
+            <tr>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell white "><span class="disc"></span></td>
+              <td class="cell black "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+            </tr>
+            <tr>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell black "><span class="disc"></span></td>
+              <td class="cell white "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+            </tr>
+            <tr>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+            </tr>
+            <tr>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+            </tr>
+            <tr>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+              <td class="cell empty "><span class="disc"></span></td>
+            </tr></table></div>
+
+      <div id="current-player">Tour : Noir</div>
+      <input id="bouton" type="button" value="Jouer"/>
+      <select id="color">
+        <option value="0">Noir</option>
+        <option value="1">Blanc</option>
+      </select>
+      <input type="button" id="bouton2" onclick='window.location.reload(false)' value="Rejouer"/>
+
+      <script type="text/javascript" src="Othello%20JS_fichiers/app.js"></script>
+
+      <script src="CV - Samuel Monsempes_fichiers/particles.js"></script>
+</body></html>
