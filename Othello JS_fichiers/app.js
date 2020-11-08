@@ -197,7 +197,7 @@ function bot(){
   [1, 0], [1, 1], [1, 6], [1, 7],
   [6, 0], [6, 1], [6, 6], [6, 7],
   [7, 1], [7, 6]];
-  if (true||(score_joueur+score_bot)<50){
+  if ((score_joueur+score_bot)<7){
     matrice.map((l,i)=>l.map((c,j)=>{
       if(Array.isArray(c)&&c.length>max&&!coordAEviter.find( ([x, y]) => x === i && y === j)){
         max=c.length
@@ -212,13 +212,11 @@ function bot(){
       xmax=i;
       ymax=j;
     }
+  }))}}
+  else{
+    xmax,ymax=calculfin();
   }
-))}
-}
-else{
-  calculfin(matrice);
-}
-joue(xmax,ymax)
+  joue(xmax,ymax)
 }
 
 function calculbot(){
@@ -232,13 +230,22 @@ function calculbot(){
 return totalcalcul;
 }
 
-function calculfin(m){
-  let comptscorebot = 0;
-  let comptscorejoueur = 0;
-  m.map((l,i)=>l.map((c,j)=>{
-    if(c=="c")"test"
-  }
-))
+function calculfin(){
+  let score = 0;
+  let sum;
+  let x,y;
+  matrice.map((l,i)=>l.map((c,j)=>{
+    if(Array.isArray(c)){
+      sum = joue2(i,j,nb,matrice.slice(0),score_joueur,score_bot,tour);
+      if(sum>=score){
+        score = sum;
+        x=i;
+        y=j;
+      }
+    }
+  }))
+  console.log(score,x,y)
+  return x,y;
 }
 
 function refresh2(x,y,m,tour2){
@@ -319,6 +326,58 @@ function refresh2(x,y,m,tour2){
     if (tab.length) m[x][y]=tab;
   }
 
-
+  console.log("tl:",tab.length)
   return tab.length,m;
+}
+
+
+function joue2(x, y,compt,m,sj2,sb2,tour2){
+  m[x][y].map(cell=>{m[cell[0]][cell[1]]=tour2});
+  if(tour2===joueur){
+    sj2=sj2+m[x][y].length+1
+    sb2=sb2-m[x][y].length
+  }
+  else {
+    sj2=sj2-m[x][y].length
+    sb2=sb2+m[x][y].length+1
+  }
+  m[x][y]=tour2;
+  tour2=(tour2)?0:1;
+
+  return init_tour2(compt,m.slice(0),sj2,sb2,tour2);
+}
+
+
+function init_tour2(compt,m,sj2,sb2,tour2){
+  compt++;
+  let bool2=0;
+  m.map((l,x)=>{
+    l.map((c,y)=>{
+      if(m[x][y]!==0&&m[x][y]!==1)m[x][y]=2;
+      bool2,m=refresh2(x,y,m.slice(0),tour2);
+    })});
+
+      console.log(bool2)
+  if(bool2){
+    return bot2(compt,m.slice(0),sj2,sb2,tour2);
+  }else {
+    tour2=(tour2)?0:1;
+    if((sj2+sb2)<64&&compt<100){
+      return init_tour2(compt,m.slice(0),sj2,sb2,tour2);
+    }else{
+      return (sj2>sb2)?0:1;
+    }
+  }
+}
+
+
+
+function bot2(compt,m,sj2,sb2,tour2){
+  let sum = 0;
+  m.map((l,i)=>l.map((c,j)=>{
+    if(Array.isArray(c)){
+      sum+= joue2(i,j,compt,m.slice(0),sj2,sb2,tour2);
+    }
+  }))
+  return sum;
 }
